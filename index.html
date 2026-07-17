@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <!-- ===== THEME TOGGLE ===== -->
+    <div class="topbar">
+      <button id="theme-toggle" class="btn btn-ghost theme-btn" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+        <span id="theme-icon">☀️</span>
+        <span id="theme-label">Light Mode</span>
+      </button>
+    </div>
+
+    <!-- ===== GREETING SECTION ===== -->
+    <header class="greeting-section">
+      <p id="date-display" class="date"></p>
+      <h1 id="greeting-text" class="greeting"></h1>
+      <p id="time-display" class="time"></p>
+
+      <!-- Custom name -->
+      <div class="name-row" id="name-display-row">
+        <span class="name-label">Hello, </span>
+        <span id="name-display" class="name-value">there</span>
+        <button id="name-edit-btn" class="btn-icon name-edit-trigger" title="Set your name" aria-label="Edit your name">✏️</button>
+      </div>
+      <form id="name-form" class="name-form" hidden>
+        <input
+          type="text"
+          id="name-input"
+          class="input name-input"
+          placeholder="Enter your name…"
+          maxlength="30"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" id="name-cancel-btn" class="btn btn-ghost">Cancel</button>
+      </form>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="dashboard">
+
+      <!-- FOCUS TIMER -->
+      <section class="card" id="timer-card">
+        <h2 class="card-title">Focus Timer</h2>
+        <div class="timer-display" id="timer-display">25:00</div>
+        <div class="timer-controls">
+          <button id="btn-start" class="btn btn-primary">Start</button>
+          <button id="btn-stop" class="btn btn-secondary">Stop</button>
+          <button id="btn-reset" class="btn btn-ghost">Reset</button>
+        </div>
+        <p class="timer-label" id="timer-label">Ready to focus?</p>
+      </section>
+
+      <!-- TO-DO LIST -->
+      <section class="card" id="todo-card">
+        <h2 class="card-title">To-Do List</h2>
+        <form id="todo-form" class="todo-form">
+          <input
+            type="text"
+            id="todo-input"
+            class="input"
+            placeholder="Add a new task..."
+            maxlength="100"
+            autocomplete="off"
+          />
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        <ul id="todo-list" class="todo-list"></ul>
+        <p class="empty-state" id="todo-empty">No tasks yet. Add one above!</p>
+      </section>
+
+      <!-- QUICK LINKS -->
+      <section class="card" id="links-card">
+        <h2 class="card-title">Quick Links</h2>
+        <form id="link-form" class="link-form">
+          <input
+            type="text"
+            id="link-name-input"
+            class="input"
+            placeholder="Label (e.g. GitHub)"
+            maxlength="30"
+            autocomplete="off"
+          />
+          <input
+            type="url"
+            id="link-url-input"
+            class="input"
+            placeholder="https://example.com"
+            autocomplete="off"
+          />
+          <button type="submit" class="btn btn-primary">Add Link</button>
+        </form>
+        <div id="links-grid" class="links-grid"></div>
+        <p class="empty-state" id="links-empty">No links yet. Add one above!</p>
+      </section>
+
+    </main>
+
+    <!-- EDIT TASK MODAL -->
+    <div id="edit-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal">
+        <h3 id="modal-title" class="modal-title">Edit Task</h3>
+        <input type="text" id="edit-input" class="input" maxlength="100" />
+        <div class="modal-actions">
+          <button id="edit-save-btn" class="btn btn-primary">Save</button>
+          <button id="edit-cancel-btn" class="btn btn-ghost">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
